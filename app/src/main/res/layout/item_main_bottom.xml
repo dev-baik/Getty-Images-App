@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.example.getty_images_app.domain.model.MainRecyclerViewItem.PageNumber" />
+
+        <variable
+            name="listener"
+            type="com.example.getty_images_app.presentation.main.ui.list.MainRecyclerViewAdapter.MainBottomListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_previous"
+            style="@style/MaterialButton.14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/bg_white_to_black"
+            android:onClick="@{() -> listener.goToPreviousPage()}"
+            android:text="@string/main_previous"
+            android:textColor="@color/bg_black_to_white"
+            android:visibility="@{item.pageNumber > 1 ? View.VISIBLE : View.GONE}"
+            app:icon="@drawable/ic_previous_20dp"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/bg_black_to_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/et_page_number"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@android:color/transparent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <EditText
+            android:id="@+id/et_page_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_stroke_080808"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="7dp"
+            android:text="@{String.valueOf(item.pageNumber)}"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_of"
+            app:layout_constraintStart_toEndOf="@id/btn_previous"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tv_of"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/main_of"
+            android:textColor="@color/color_080808"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_page_number"
+            app:layout_constraintEnd_toStartOf="@id/tv_total_page_number"
+            app:layout_constraintStart_toEndOf="@id/et_page_number"
+            app:layout_constraintTop_toTopOf="@id/et_page_number" />
+
+        <TextView
+            android:id="@+id/tv_total_page_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/main_total_page_number"
+            android:textColor="@color/color_080808"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_page_number"
+            app:layout_constraintEnd_toStartOf="@id/btn_next"
+            app:layout_constraintStart_toEndOf="@id/tv_of"
+            app:layout_constraintTop_toTopOf="@id/et_page_number" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            style="@style/MaterialButton.14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/bg_white_to_black"
+            android:onClick="@{() -> listener.goToNextPage()}"
+            android:paddingHorizontal="35dp"
+            android:text="@string/main_next"
+            android:textColor="@color/bg_black_to_white"
+            app:icon="@drawable/ic_next_20dp"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:iconTint="@color/bg_black_to_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_total_page_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@android:color/transparent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

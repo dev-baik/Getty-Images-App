@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Getty_images_app</string>
+
+    <!-- MainActivity -->
+    <string name="main_wifi_instability">인터넷 연결이 불안정해요.\n데이터 또는 WiFi 연결 상태를 확인하고 다시 시도해주세요.</string>
+    <string name="main_retry">재시도</string>
+    <string name="main_previous">PREVIOUS</string>
+    <string name="main_of">of</string>
+    <string name="main_next">NEXT</string>
+    <string name="main_total_page_number">100</string>
+</resources>
